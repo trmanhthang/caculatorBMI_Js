@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+</head>
+<body>
+    <div>
+        <h4>Cân Nặng của bạn (kg) :</h4>
+        <input type="text" placeholder="Nhập cân nặng của bạn" id="yourWeight">
+        <h4>Chiều cao của bạn (m) :</h4>
+        <input type="text" placeholder="Nhập chiều cao của bạn" id="yourHeight">
+        <br>
+        <input type="button" value="Kiểm tra" onclick="check()" style="margin-top: 8px;">
+    </div>
+
+    <div id="outPut"></div>
+</body>
+
+<script>
+    function check() {
+        let weight = parseFloat(document.getElementById('yourWeight').value);
+        let height = parseFloat(document.getElementById('yourHeight').value);
+        let bmi = (weight / (height * height));  
+
+        if(bmi < 18.5) {
+            document.getElementById('outPut').innerHTML = 'Chỉ số BMI của bạn:' + ' ' + bmi + ' ' + 'Bạn thiếu cân';
+        } else if(bmi < 25) {
+            document.getElementById('outPut').innerHTML = 'Chỉ số BMI của bạn:' + ' ' + bmi + ' ' + 'Bạn bình thường';
+        } else if(bmi < 30) {
+            document.getElementById('outPut').innerHTML = 'Chỉ số BMI của bạn:' + ' ' + bmi + ' ' + 'Bạn thừa cân';
+        } else {
+            document.getElementById('outPut').innerHTML = 'Chỉ số BMI của bạn:' + ' ' + bmi + ' ' + 'Bạn béo phì';
+        }
+    }
+</script>
+</html>
